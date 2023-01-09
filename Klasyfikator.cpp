@@ -1,0 +1,1 @@
+#include "Klasyfikator.h"
