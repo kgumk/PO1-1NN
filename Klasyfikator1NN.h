@@ -6,12 +6,12 @@ template <class Metryka>
 class Klasyfikator1NN :
     public Klasyfikator
 {
-    DaneZKlasami *daneTrn;
+	const DaneZKlasami *daneTrn;
     string Klasyfikuj(const vector<float> &dane);
     Metryka metryka;
 public:
     Klasyfikator1NN(Metryka metryka);
-    void Naucz(DaneZKlasami *dane);
+    void Naucz(const DaneZKlasami *dane);
     Klasy Klasyfikuj(const Dane &dane);
 };
 
@@ -22,7 +22,7 @@ Klasyfikator1NN<Metryka>::Klasyfikator1NN(Metryka metryka)
 }
 
 template <class Metryka>
-void Klasyfikator1NN<Metryka>::Naucz(DaneZKlasami* dane)
+void Klasyfikator1NN<Metryka>::Naucz(const DaneZKlasami* dane)
 {
 	daneTrn = dane;
 }

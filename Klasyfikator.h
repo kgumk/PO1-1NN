@@ -2,7 +2,7 @@
 class Klasyfikator
 {
 public:
-	virtual void Naucz(DaneZKlasami dane) = 0;
-	virtual Klasy Klasyfikuj(DaneZKlasami dane) = 0;
+	virtual void Naucz(const DaneZKlasami *dane) = 0;
+	virtual Klasy Klasyfikuj(const Dane &dane) = 0;
 };
 

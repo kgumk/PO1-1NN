@@ -1,5 +1,25 @@
 #include "DaneZKlasami.h"
 
+vector<string> Podziel(char* linia, char separator)
+{
+	vector<string> wynik;
+	string czesc;
+	while (*linia)
+	{
+		if (*linia == separator)
+		{
+			wynik.push_back(czesc);
+			czesc = "";
+		}
+		else
+			czesc.push_back(*linia);
+		linia++;
+	}
+	if (czesc.size())
+		wynik.push_back(czesc);
+	return wynik;
+}
+
 void DaneZKlasami::Analizuj(char* linia)
 {
 	vector<string> czesci = Podziel(linia, ' ');
@@ -14,6 +34,8 @@ istream& operator >>(istream &o, DaneZKlasami &dane)
 	while (!o.eof())
 	{
 		o.getline(linia, 1023);
-		dane.Analizuj(linia);
+		if (*linia)
+			dane.Analizuj(linia);
 	}
+	return o;
 }

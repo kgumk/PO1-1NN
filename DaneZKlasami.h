@@ -9,7 +9,8 @@ class DaneZKlasami : public Dane
     Klasy klasy;
 public:
     void Analizuj(char *linia);
-    string Klasa(int i) { return klasy.Klasa(i); }
+    Klasy Klasy() const { return klasy; }
+    string Klasa(int i) const { return klasy.KlasaObiektu(i); }
 };
 
 istream& operator >>(istream&, DaneZKlasami&);

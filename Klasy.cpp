@@ -2,7 +2,7 @@
 
 void Klasy::Dodaj(string s)
 {
-	if (!indeksyKlas.HasKey(s))
+	if (indeksyKlas.find(s) == indeksyKlas.end())
 	{
 		nazwy.push_back(s);
 		indeksyKlas[s] = nazwy.size() - 1;

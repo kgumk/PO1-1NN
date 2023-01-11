@@ -143,17 +143,16 @@
     <ClCompile Include="Dane.cpp" />
     <ClCompile Include="DaneZKlasami.cpp" />
     <ClCompile Include="Klasy.cpp" />
-    <ClCompile Include="Klasyfikator.cpp" />
-    <ClCompile Include="Klasyfikator1NN.cpp" />
+    <ClCompile Include="MacierzKonfuzji.cpp" />
     <ClCompile Include="MetrykaEuklidesa.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="1NN.h" />
     <ClInclude Include="Dane.h" />
     <ClInclude Include="DaneZKlasami.h" />
     <ClInclude Include="Klasy.h" />
     <ClInclude Include="Klasyfikator.h" />
     <ClInclude Include="Klasyfikator1NN.h" />
+    <ClInclude Include="MacierzKonfuzji.h" />
     <ClInclude Include="MetrykaEuklidesa.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
