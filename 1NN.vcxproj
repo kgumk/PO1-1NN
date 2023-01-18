@@ -140,13 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="1NN.cpp" />
-    <ClCompile Include="DaneZKlasami.cpp" />
+    <ClCompile Include="DaneRnZKlasami.cpp" />
     <ClCompile Include="Klasy.cpp" />
     <ClCompile Include="MacierzKonfuzji.cpp" />
     <ClCompile Include="MetrykaEuklidesa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dane.h" />
+    <ClInclude Include="DaneRnZKlasami.h" />
     <ClInclude Include="DaneZKlasami.h" />
     <ClInclude Include="Klasy.h" />
     <ClInclude Include="Klasyfikator.h" />

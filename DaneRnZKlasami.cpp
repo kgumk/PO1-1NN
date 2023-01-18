@@ -1,4 +1,4 @@
-#include "DaneZKlasami.h"
+#include "DaneRnZKlasami.h"
 
 vector<string> Podziel(char* linia, char separator)
 {

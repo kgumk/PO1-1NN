@@ -14,11 +14,3 @@ public:
     Klasy Klasy() const { return klasy; }
     string Klasa(int i) const { return klasy.KlasaObiektu(i); }
 };
-
-class DaneRnZKlasami : public DaneZKlasami<vector<float>>
-{
-public:
-    void Analizuj(char* linia);
-};
-
-istream& operator >>(istream&, DaneRnZKlasami&);

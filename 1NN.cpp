@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include "DaneZKlasami.h"
+#include "DaneRnZKlasami.h"
 #include "Klasyfikator1NN.h"
 #include "MetrykaEuklidesa.h"
 #include "MacierzKonfuzji.h"
