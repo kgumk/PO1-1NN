@@ -20,15 +20,26 @@ vector<string> Podziel(char* linia, char separator)
 	return wynik;
 }
 
-void DaneZKlasami::Analizuj(char* linia)
+vector<float> AnalizujObiekt(vector<string> s, int ile)
+{
+	vector<float> kolejny;
+	for (int i = 0; i < ile; i++)
+	{
+		float f = stof(s[i]);
+		kolejny.push_back(f);
+	}
+	return kolejny;
+}
+
+void DaneRnZKlasami::Analizuj(char* linia)
 {
 	vector<string> czesci = Podziel(linia, ' ');
-	Dane::Analizuj(czesci, czesci.size() - 1);
+	dane.push_back(AnalizujObiekt(czesci, czesci.size() - 1));
 	klasy.Dodaj(czesci[czesci.size() - 1]);
 }
 
 
-istream& operator >>(istream &o, DaneZKlasami &dane)
+istream& operator >>(istream &o, DaneRnZKlasami &dane)
 {
 	char linia[1024];
 	while (!o.eof())

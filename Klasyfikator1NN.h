@@ -1,34 +1,35 @@
 #pragma once
 #include "Klasyfikator.h"
 #include "DaneZKlasami.h"
+#include "Metryka.h"
 
-template <class Metryka>
+template <class ObiektDanych>
 class Klasyfikator1NN :
-    public Klasyfikator
+    public Klasyfikator<ObiektDanych>
 {
-	const DaneZKlasami *daneTrn;
-    string Klasyfikuj(const vector<float> &dane);
-    Metryka metryka;
+	const DaneZKlasami<ObiektDanych> *daneTrn;
+    string Klasyfikuj(const ObiektDanych&dane);
+    Metryka<ObiektDanych> *metryka;
 public:
-    Klasyfikator1NN(Metryka metryka);
-    void Naucz(const DaneZKlasami *dane);
-    Klasy Klasyfikuj(const Dane &dane);
+    Klasyfikator1NN(Metryka<ObiektDanych> *metryka);
+    void Naucz(const DaneZKlasami<ObiektDanych> *dane);
+    Klasy Klasyfikuj(const Dane<ObiektDanych> &dane);
 };
 
-template <class Metryka>
-Klasyfikator1NN<Metryka>::Klasyfikator1NN(Metryka metryka)
+template <class ObiektDanych>
+Klasyfikator1NN<ObiektDanych>::Klasyfikator1NN(Metryka<ObiektDanych> *metryka)
 	: metryka(metryka)
 {
 }
 
-template <class Metryka>
-void Klasyfikator1NN<Metryka>::Naucz(const DaneZKlasami* dane)
+template <class ObiektDanych>
+void Klasyfikator1NN<ObiektDanych>::Naucz(const DaneZKlasami<ObiektDanych>* dane)
 {
 	daneTrn = dane;
 }
 
-template <class Metryka>
-Klasy Klasyfikator1NN<Metryka>::Klasyfikuj(const Dane& dane)
+template <class ObiektDanych>
+Klasy Klasyfikator1NN<ObiektDanych>::Klasyfikuj(const Dane<ObiektDanych>& dane)
 {
 	Klasy klasy;
 	for (int i = 0; i < dane.LiczbaObiektow(); i++)
@@ -39,14 +40,14 @@ Klasy Klasyfikator1NN<Metryka>::Klasyfikuj(const Dane& dane)
 	return klasy;
 }
 
-template <class Metryka>
-string Klasyfikator1NN<Metryka>::Klasyfikuj(const vector<float>& dane)
+template <class ObiektDanych>
+string Klasyfikator1NN<ObiektDanych>::Klasyfikuj(const ObiektDanych& dane)
 {
 	int indeksNN = 0;
-	float odleglosc = metryka(dane, daneTrn->Obiekt(0));
+	float odleglosc = (*metryka)(dane, daneTrn->Obiekt(0));
 	for (int i = 1; i < daneTrn->LiczbaObiektow(); i++)
 	{
-		float odl = metryka(dane, daneTrn->Obiekt(i));
+		float odl = (*metryka)(dane, daneTrn->Obiekt(i));
 		if (odl < odleglosc)
 		{
 			indeksNN = i;

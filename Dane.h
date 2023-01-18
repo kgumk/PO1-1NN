@@ -3,13 +3,15 @@
 #include <vector>
 using namespace std;
 
+template <class ObiektDanych>
 class Dane
 {
-	vector<vector<float>> dane;
+protected:
+	vector<ObiektDanych> dane;
 
 public:
-	void Analizuj(vector<string> s, int ile);
+	//void AnalizujObiekt(vector<string> s, int ile);
 	int LiczbaObiektow() const { return dane.size(); }
-	const vector<float>& Obiekt(int i) const { return dane[i]; }
+	const ObiektDanych& Obiekt(int i) const { return dane[i]; }
 };
 

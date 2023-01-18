@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="1NN.cpp" />
-    <ClCompile Include="Dane.cpp" />
     <ClCompile Include="DaneZKlasami.cpp" />
     <ClCompile Include="Klasy.cpp" />
     <ClCompile Include="MacierzKonfuzji.cpp" />
@@ -153,6 +152,7 @@
     <ClInclude Include="Klasyfikator.h" />
     <ClInclude Include="Klasyfikator1NN.h" />
     <ClInclude Include="MacierzKonfuzji.h" />
+    <ClInclude Include="Metryka.h" />
     <ClInclude Include="MetrykaEuklidesa.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

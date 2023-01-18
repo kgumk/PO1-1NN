@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include "DaneZKlasami.h"
 #include "Klasyfikator1NN.h"
@@ -23,7 +24,7 @@ void PorownajKlasy(Klasy k1, Klasy k2)
 
     for (int i = 0; i < m.LiczbaKlas(); i++)
     {
-        cout << m.Klasa(i) << "\t";
+        cout << setw(15) << m.Klasa(i) << "\t";
         for (int j = 0; j < m.LiczbaKlas(); j++)
             cout << m.Wpis(i, j) << "\t";
         cout << endl;
@@ -42,15 +43,15 @@ void PorownajKlasy(Klasy k1, Klasy k2)
 
 int main()
 {
-    DaneZKlasami dtrn;
-    DaneZKlasami dtst;
+    DaneRnZKlasami dtrn;
+    DaneRnZKlasami dtst;
     ifstream f1("iris-trn.dat");
     f1 >> dtrn;
     ifstream f2("iris-tst.dat");
     f2 >> dtst;
 
     MetrykaEuklidesa metryka;
-    Klasyfikator1NN<MetrykaEuklidesa> oneNN(metryka);
+    Klasyfikator1NN<vector<float>> oneNN(&metryka);
     oneNN.Naucz(&dtrn);
 
     Klasy klasy = oneNN.Klasyfikuj(dtst);

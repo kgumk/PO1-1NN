@@ -1,16 +1,24 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Dane.h"
 #include "Klasy.h"
 using namespace std;
 
-class DaneZKlasami : public Dane
+template <class ObiektDanych>
+class DaneZKlasami : public Dane<ObiektDanych>
 {
+protected:
     Klasy klasy;
 public:
-    void Analizuj(char *linia);
     Klasy Klasy() const { return klasy; }
     string Klasa(int i) const { return klasy.KlasaObiektu(i); }
 };
 
-istream& operator >>(istream&, DaneZKlasami&);
+class DaneRnZKlasami : public DaneZKlasami<vector<float>>
+{
+public:
+    void Analizuj(char* linia);
+};
+
+istream& operator >>(istream&, DaneRnZKlasami&);
